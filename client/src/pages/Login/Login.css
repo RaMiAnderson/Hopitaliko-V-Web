@@ -1,0 +1,105 @@
+
+
+
+.loginParent {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+.loginParent .cover{
+    position: relative;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loginParent .cover p{
+    font-weight: bolder;
+    position: absolute;
+    top: 25px;
+    left: 130px;
+    color: var(--orange);
+    font-size: 140px;
+}
+.loginParent .cover img{
+    width: 72%;
+    margin-top: -4%;
+}
+
+
+.loginParent .sectionForm{
+    height: 100vh;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.loginParent .sectionForm .salutation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6%;
+    width: 65%;
+}
+.loginParent .sectionForm .salutation h2{
+    font-family: arialBlack;
+    font-size: 37px;
+}
+.loginParent .sectionForm .salutation{
+    color: var(--noirbe);
+}
+
+.loginParent .sectionForm .divForm{
+    width: 61%;
+
+}
+.loginParent .sectionForm .textField, .loginParent .sectionForm .btnSubmit{
+    width: 100%;
+    margin-bottom: 5%;
+}
+.loginParent .sectionForm .btnSubmit{
+    background-color: var(--blueThem);
+    color: var(--white);
+    text-transform:none;
+    font-size: 1rem;
+    margin-top: 5%;
+}
+.loginParent .sectionForm .btnSubmit:hover{
+    background-color: var(--blueThemDur);
+}
+.loginParent .sectionForm .btnOtherLog{
+    text-transform: none;
+    color: var(--noirbe);
+    opacity: .8;
+    width: 100%;
+}
+.loginParent .sectionForm .btnOtherLog:hover{
+    opacity: 1;
+    background-color: var(--grayTransp);
+}
+
+.loginParent .sectionForm .otherLogBtn{
+    text-transform: none;
+    display: flex;
+    justify-content: space-between;
+    border-color: #00bce2b0;
+    box-shadow: 0px 0px 10px #00bce23a;
+    color: var(--blueThem);
+    margin-top: 12px;
+}
+.loginParent .sectionForm .otherLogBtn img{
+    width: 25px;
+    margin-right: 6px;
+}
+.loginParent .forgotPasswSection{
+    width: 100%;
+    margin-top: 4%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
