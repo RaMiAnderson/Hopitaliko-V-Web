@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "Mackaël Anderson",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
