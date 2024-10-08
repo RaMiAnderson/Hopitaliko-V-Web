@@ -16,14 +16,7 @@
     justify-content: center;
     align-items: center;
 }
-.loginParent .cover p{
-    font-weight: bolder;
-    position: absolute;
-    top: 25px;
-    left: 130px;
-    color: var(--orange);
-    font-size: 140px;
-}
+
 .loginParent .cover img{
     width: 72%;
     margin-top: -4%;
@@ -48,6 +41,12 @@
 .loginParent .sectionForm .salutation h2{
     font-family: arialBlack;
     font-size: 37px;
+}
+.loginParent .sectionForm .salutation p{
+    text-align: center;
+}
+.loginParent .sectionForm .TitleLogin{
+    color: var(--blueThem);
 }
 .loginParent .sectionForm .salutation{
     color: var(--noirbe);
@@ -102,4 +101,27 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
+}
+
+@media screen and (max-width : 1024px) {
+    .loginParent {
+        justify-content: center;
+    }
+
+    .loginParent .cover{
+        display: none;
+    }
+
+    .loginParent .sectionForm{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+@media screen and (max-width : 860px) {
+    .loginParent .sectionForm{
+        width: 100%;
+    }
 }

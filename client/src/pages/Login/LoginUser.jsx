@@ -1,12 +1,9 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import LoginCover from "../../assets/cover/bg.svg"
 
 //component
 import { TextField, Button } from '@mui/material'
 
-//ico
-import GoogleIcon from '../../assets/ico/icons8-google.svg'
-import FacebookIcon from '../../assets/ico/icons8-facebook.svg'
 //style
 import "./Login.css"
 
@@ -23,14 +20,13 @@ let LoginUser = ()=> {
         <section className='sectionForm'>
 
           <div className='salutation'>
-            <h2>Welcome Back to SSC !</h2>
-            <p>Lets get you Logged in</p>
+            <h2 className='TitleLogin'>Hotel'iko</h2>
+            <p>Veuillez vous connecter s'il vous plaît!</p>
           </div>
 
           <div className='divForm'>
             <form action="#">
               <TextField 
-              
                 id='outlined-required'
                 label="Email"
                 defaultValue="" className='textField emailErr' />
@@ -41,14 +37,9 @@ let LoginUser = ()=> {
                 autoComplete='current-password'
                 className='textField passErr' />
               
-              
+              <Button type='submit' className='btnSubmit' variant="Contained">Se Connecter</Button>
             </form>
-            <a href=""><Button className='btnOtherLog' variant="Contained">Autre methode de connexion</Button></a>
             
-            <div className='forgotPasswSection'>
-              <Button className='otherLogBtn' variant='outlined'><img src={GoogleIcon} alt="" />Continuer avec Google</Button>
-              <Button className='otherLogBtn' variant='outlined' ><img  src={FacebookIcon} alt="" />Continuer avec Facebook</Button>
-            </div>
           </div>
 
         </section>

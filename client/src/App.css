@@ -14,3 +14,14 @@
   outline: none;
   box-sizing: border-box;
 }
+
+:root {
+  --noirbe : rgb(56, 56, 56);
+  --white : #edf1f4;
+  --whiteBe : rgb(248, 247, 247);
+  --blueThem : #0099B9;
+  --blueThemClaire : #00b3d6;
+  --blueThemDur : #024F5F;
+  --grayTransp : #3f3d551a;
+  --orange : #ff6161;
+}
