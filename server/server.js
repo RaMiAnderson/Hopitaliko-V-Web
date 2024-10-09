@@ -6,6 +6,9 @@ const app = express();
 // Middleware pour parser les données POST
 app.use(express.urlencoded({ extended: true }));
 
+//DATABASE
+const {initDataBase} = require("./database/databaseConnector")
+initDataBase();
 
 
 app.get("/", (req, res) => {
