@@ -7,7 +7,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 //DATABASE
-const {initDataBase} = require("./database/databaseConnector")
+const {initDataBase} = require("./database/databaseConnector");
 initDataBase();
 
 
