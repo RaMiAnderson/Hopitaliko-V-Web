@@ -1,4 +1,6 @@
 const adminModel = require("../models/admin");
+const cryptageBcrypt = require("./cryptageBcrypt");
+
 const addAdmin = async (newDataAdmin) => {
     try{
         const admin = new adminModel();
@@ -8,7 +10,7 @@ const addAdmin = async (newDataAdmin) => {
         admin.genre = newDataAdmin.Genre;
         admin.fonction = "Admin";
         admin.username = newDataAdmin.Username;
-        admin.password = newDataAdmin.Password;
+        admin.password = await cryptageBcrypt.encryptPassword(newDataAdmin.Password);
 
         return new Promise( (resolve, reject) => {
             admin.save( (err) => {
