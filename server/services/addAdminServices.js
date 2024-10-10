@@ -32,7 +32,7 @@ let tmpAdmin = {
     Username : "RakRabe",
     Password: "Rab1234#"
 }
-addAdmin(tmpAdmin);
+// addAdmin(tmpAdmin);
 
 module.exports = {
     addAdmin

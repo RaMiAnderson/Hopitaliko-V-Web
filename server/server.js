@@ -11,6 +11,12 @@ const {initDataBase} = require("./database/databaseConnector");
 initDataBase();
 
 
+//Route
+const authRoutes = require("./routes/authRoutes");
+
+app.use("/auth", authRoutes);
+
+
 app.get("/", (req, res) => {
     res.send("Hello world");
 });

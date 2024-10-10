@@ -25,17 +25,17 @@ let LoginUser = ()=> {
           </div>
 
           <div className='divForm'>
-            <form action="#">
+            <form method='POST' action="http://localhost:8011/auth/login">
               <TextField 
                 id='outlined-required'
                 label="Email"
-                defaultValue="" className='textField emailErr' />
+                defaultValue="" className='textField emailErr' name='email'/>
               <TextField 
                 id='outlined-password-input'
                 label="Password"
                 type='password'
                 autoComplete='current-password'
-                className='textField passErr' />
+                className='textField passErr' name='password' />
               
               <Button type='submit' className='btnSubmit' variant="Contained">Se Connecter</Button>
             </form>

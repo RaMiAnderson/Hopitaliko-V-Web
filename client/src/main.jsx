@@ -10,12 +10,12 @@ import {createBrowserRouter, RouterProvider, Route, Navigate} from 'react-router
 //Routes
 const route = createBrowserRouter([
   {
-    path: "/auth",
+    path: "/auth/login",
     element : < App/>
   }, 
   {
     path: "/",
-    element : < Navigate to="/auth" replace/> 
+    element : < Navigate to="/auth/login" replace/> 
   }
 ]);
 
