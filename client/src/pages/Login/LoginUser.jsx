@@ -19,7 +19,8 @@ let LoginUser = ()=> {
     e.preventDefault();
     
     try{
-      const res = await axios.post("http://localhost:8011/api/auth/login", {username, password})
+      const res = await axios.post("http://localhost:8011/api/auth/login", {username, password});
+      sessionStorage.setItem("user",JSON.stringify(res.data.user))
     }catch (err)
     {
 

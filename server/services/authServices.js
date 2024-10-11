@@ -21,11 +21,12 @@ const checkUserInBD = async (user) => {
                 let response = {
                     username: adminBase.username,
                     fonction: adminBase.fonction,
-                    status: 200
+                    status: 200,
+                    message : "Connexion réussi"
                 };
                 return response;
             }
-            return { status: 403, message: "Password Incorrect" };
+            return { status: 403, message: "Mot de passe incorrect" };
         } else {
             const userBase = await User.findOne({ username: user.username });
             if (userBase !== null) {
@@ -34,11 +35,12 @@ const checkUserInBD = async (user) => {
                     let response = {
                         username: userBase.username,
                         fonction: userBase.fonction,
-                        status: 200
+                        status: 200,
+                        message : "Connexion réussi"
                     };
                     return response;
                 }
-                return { status: 403, message: "Password Incorrect" };
+                return { status: 403, message: "Mot de passe Incorrect" };
                 
             } else {
                 return { status: 403, message: "Votre username est introuvable" };

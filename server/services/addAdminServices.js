@@ -25,7 +25,7 @@ let tmpAdmin = {
     Genre : "Homme",
     Username : "RakRabe",
     Password: "Rab1234#"
-}
+} 
 // addAdmin(tmpAdmin);
 
 module.exports = {
