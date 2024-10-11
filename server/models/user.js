@@ -14,7 +14,7 @@ const userSchema = Schema({
     adressLocal : {type: String, required: true},
     numRib : {type: String, required : true},
     userName : {type: String, required: true, unique: true},
-    password : {type: String, required: true, unique: true}
+    password : {type: String, required: true}
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema); 

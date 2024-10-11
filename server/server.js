@@ -26,7 +26,7 @@ initDataBase();
 //Route
 const authRoutes = require("./routes/authRoutes");
 
-app.use("/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 
 app.get("/", (req, res) => {

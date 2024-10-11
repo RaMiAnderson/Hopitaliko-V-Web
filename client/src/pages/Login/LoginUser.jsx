@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import LoginCover from "../../assets/cover/bg.svg"
+import { useNavigate } from 'react-router-dom'
 
 //component
 import { TextField, Button } from '@mui/material'
@@ -7,8 +8,24 @@ import { TextField, Button } from '@mui/material'
 //style
 import "./Login.css"
 
+import axios from "axios"
+
 
 let LoginUser = ()=> {
+  const [username,setUsername] = useState()
+  const [password,setPassword] = useState()
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+    
+    try{
+      const res = await axios.post("http://localhost:8011/api/auth/login", {username, password})
+    }catch (err)
+    {
+
+    }
+  
+  }
   
   
   return (
@@ -25,17 +42,18 @@ let LoginUser = ()=> {
           </div>
 
           <div className='divForm'>
-            <form method='POST' action="http://localhost:8011/auth/login">
+            <form  onSubmit={submitForm}>
               <TextField 
                 id='outlined-required'
-                label="Email"
-                defaultValue="" className='textField emailErr' name='email'/>
+                label="Nom d'utilisateur"
+                defaultValue="" className='textField email' onChange={e=>setUsername(e.target.value)}/>
               <TextField 
                 id='outlined-password-input'
-                label="Password"
+                label="Mot de passe"
                 type='password'
                 autoComplete='current-password'
-                className='textField passErr' name='password' />
+                className='textField pass'
+                onChange={e=>setPassword(e.target.value)}/>
               
               <Button type='submit' className='btnSubmit' variant="Contained">Se Connecter</Button>
             </form>

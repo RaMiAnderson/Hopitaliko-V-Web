@@ -13,13 +13,7 @@ const addAdmin = async (newDataAdmin) => {
         admin.password = await cryptageBcrypt.encryptPassword(newDataAdmin.Password);
 
         return new Promise( (resolve, reject) => {
-            admin.save( (err) => {
-                if(err){
-                    console.log("ERROR SAVING IN BD : "+ err);
-                    reject("");
-                }
-                resolve(admin);
-            })
+            admin.save();
         })
     }catch (err) {
         console.log(err);

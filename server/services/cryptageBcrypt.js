@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 
-const encryptPassword = (password) => {
+const encryptPassword = async (password) => {
     return new Promise((resolve, reject) => {
         bcrypt.hash(password, 7).then((hash) => {
             resolve(hash);
@@ -12,7 +12,7 @@ const encryptPassword = (password) => {
     });
 }
 
-const comparePasswordEncrypted =  (passNotCrypted, passCrypted) => {
+const comparePasswordEncrypted = async (passNotCrypted, passCrypted) => {
     return new Promise((resolve, reject) => {
         bcrypt.compare(passNotCrypted, passCrypted).then((valid) => {
             if(valid){

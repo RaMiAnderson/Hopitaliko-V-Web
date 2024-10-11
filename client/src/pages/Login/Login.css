@@ -44,6 +44,7 @@
 }
 .loginParent .sectionForm .salutation p{
     text-align: center;
+    font-size: 0.9rem;
 }
 .loginParent .sectionForm .TitleLogin{
     color: var(--blueThem);
@@ -121,6 +122,9 @@
     }
 }
 @media screen and (max-width : 860px) {
+    .loginParent .sectionForm .salutation{
+        margin-bottom: 10vh;
+    }
     .loginParent .sectionForm{
         width: 100%;
     }
