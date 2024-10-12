@@ -4,6 +4,7 @@ import App from './App.jsx'
 
 //route ImportDep
 import {createBrowserRouter, RouterProvider, Route, Navigate} from 'react-router-dom';
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -11,11 +12,15 @@ import {createBrowserRouter, RouterProvider, Route, Navigate} from 'react-router
 const route = createBrowserRouter([
   {
     path: "/auth/login",
-    element : < App/>
+    element : < App.LoginPage/>
   }, 
   {
     path: "/",
     element : < Navigate to="/auth/login" replace/> 
+  },
+  {
+    path: "/admin/dashboard",
+    element : <App.AdminDashboard/>
   }
 ]);
 
@@ -23,6 +28,7 @@ const route = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Toaster />
     < RouterProvider router={route}/>
   </StrictMode>,
 )

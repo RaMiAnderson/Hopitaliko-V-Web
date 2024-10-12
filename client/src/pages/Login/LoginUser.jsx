@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import LoginCover from "../../assets/cover/bg.svg"
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 //component
 import { TextField, Button } from '@mui/material'
@@ -9,21 +9,53 @@ import { TextField, Button } from '@mui/material'
 import "./Login.css"
 
 import axios from "axios"
+import {toast} from "react-hot-toast"
 
 
 let LoginUser = ()=> {
   const [username,setUsername] = useState()
   const [password,setPassword] = useState()
+  const navigate = useNavigate();
 
   const submitForm = async (e) => {
     e.preventDefault();
+    const emailsLabel = document.querySelector(".emailErr .MuiFormLabel-root")
+    const emailInputDiv = document.querySelector(".emailErr .MuiInputBase-root")
+    const passLabel = document.querySelector(".passErr .MuiFormLabel-root")
+    const passInputDiv = document.querySelector(".passErr .MuiInputBase-root")
     
     try{
       const res = await axios.post("http://localhost:8011/api/auth/login", {username, password});
-      sessionStorage.setItem("user",JSON.stringify(res.data.user))
+      emailsLabel.classList.remove("Mui-error")
+      emailInputDiv.classList.remove("Mui-error")
+      passLabel.classList.remove("Mui-error")
+      passInputDiv.classList.remove("Mui-error")
+
+      // --------MILA KETREANA ILAY CRYPT TOKEN SESSION -------- console.log(JSON.stringify(res.data.token));
+      
+      if(res.data.msg == "Connexion réussi"){
+        //save to session
+        sessionStorage.setItem("user",JSON.stringify(res.data.user));
+        if(res.status == 200 && res.data.user.fonction == "Admin")
+          navigate("/admin/dashboard");
+      }else{
+        //control message 
+        let message = JSON.stringify(res.data.msg).split("").map(car => car.replace('"', "")).join("");
+        toast.error(message, { duration: 6000});
+        //control style
+        if(message == "Mot de passe incorrect"){
+          passLabel.classList.add("Mui-error")
+          passInputDiv.classList.add("Mui-error")
+        }
+        if(message == "Votre username est introuvable"){
+          emailsLabel.classList.add("Mui-error")
+          emailInputDiv.classList.add("Mui-error")
+        }
+        
+      }
     }catch (err)
     {
-
+      
     }
   
   }
@@ -47,13 +79,13 @@ let LoginUser = ()=> {
               <TextField 
                 id='outlined-required'
                 label="Nom d'utilisateur"
-                defaultValue="" className='textField email' onChange={e=>setUsername(e.target.value)}/>
+                defaultValue="" className='textField email emailErr' onChange={e=>setUsername(e.target.value)}/>
               <TextField 
                 id='outlined-password-input'
                 label="Mot de passe"
                 type='password'
                 autoComplete='current-password'
-                className='textField pass'
+                className='textField pass passErr'
                 onChange={e=>setPassword(e.target.value)}/>
               
               <Button type='submit' className='btnSubmit' variant="Contained">Se Connecter</Button>
