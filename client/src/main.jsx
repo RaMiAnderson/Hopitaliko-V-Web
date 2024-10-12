@@ -21,6 +21,10 @@ const route = createBrowserRouter([
   {
     path: "/admin/dashboard",
     element : <App.AdminDashboard/>
+  },
+  {
+    path: "/admin",
+    element : < Navigate to="/admin/dashboard" replace/>
   }
 ]);
 
