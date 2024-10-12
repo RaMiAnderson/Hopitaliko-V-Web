@@ -48,12 +48,42 @@ const checkUserInBD = async (user) => {
         }
     } catch (err) {
         console.log("ERROR login service : " + err);
-        throw new Error("ErrorServer "); // Lancer l'erreur pour un meilleur suivi
+        throw new Error("ErrorServer ");
     }
 };
+
+const getUserInBD = async (user) => {
+    try {
+        // Recherche d'un utilisateur admin
+        const adminBase = await admin.findOne({ username: user.username });
+        if (adminBase !== null)
+            return adminBase;
+        else {
+            const userBase = await User.findOne({ username: user.username });
+            if (userBase !== null)
+                return userBase;
+            else
+                return { status: 404, message: "User not found" };
+        }
+    } catch (err) {
+        console.log("ERROR login service : " + err);
+        throw new Error("ErrorServer ");
+    }
+}
+
+const verifyU_srvc = async (user) => {
+    try{
+        const dataUser = await getUserInBD(user);
+        dataUser.password = "";
+        return dataUser;
+    }catch(err){
+        console.log("ERROR Verify USR " + err); 
+    }
+}
 
 
 
 module.exports = {
-    loginService
+    loginService,
+    verifyU_srvc
 }

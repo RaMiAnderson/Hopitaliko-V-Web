@@ -31,11 +31,12 @@ let LoginUser = ()=> {
       passLabel.classList.remove("Mui-error")
       passInputDiv.classList.remove("Mui-error")
 
-      // --------MILA KETREANA ILAY CRYPT TOKEN SESSION -------- console.log(JSON.stringify(res.data.token));
-      
+      // ilay token
+      const tk = JSON.stringify(res.data.token);
+
       if(res.data.msg == "Connexion réussi"){
-        //save to session
-        sessionStorage.setItem("user",JSON.stringify(res.data.user));
+        //save to session : envoi token
+        sessionStorage.setItem("user",tk);
         if(res.status == 200 && res.data.user.fonction == "Admin")
           navigate("/admin/dashboard");
       }else{
@@ -55,7 +56,7 @@ let LoginUser = ()=> {
       }
     }catch (err)
     {
-      
+
     }
   
   }

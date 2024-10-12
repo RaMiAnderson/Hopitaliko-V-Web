@@ -15,6 +15,16 @@ const loginController = async (req, res) => {
     }
 }
 
+const verifyAndGetUser = async (req, res) => {
+    try{
+        const dataUser = await authService.verifyU_srvc(req.body);
+        res.json(dataUser);
+    }catch (err){
+        console.log("ERROR VERIFY USER " + err);
+    }
+}
+
 module.exports = {
-    loginController
+    loginController,
+    verifyAndGetUser
 }
