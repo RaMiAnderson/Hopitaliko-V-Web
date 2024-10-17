@@ -4,8 +4,16 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 
 
+//style
+import "./DashboardStyle.css"
+
+//navBar
+import NavbAdmin from "../../../components/Navbar/AdminNavbar"
+
 export default function adminDashboard() {
     const navigate = useNavigate();
+
+    // Verify if already Connected
     const [token, setToken] = useState(sessionStorage.getItem("user"));
     if(token !== null){
         const [userDataSRC, setUserDataSRC] = useState(getUser.getDataUser(token));
@@ -14,8 +22,8 @@ export default function adminDashboard() {
         
         useEffect(() => {
             if(userData != undefined){
-                // ETO ZAOOOOOOOO
-                console.log(userData)
+                if(userData.fonction !== "Admin")
+                    navigate("/")
             }
         })
     }
@@ -24,7 +32,17 @@ export default function adminDashboard() {
     
 
 
-  return (
-    <h1>adminDashboard</h1>
-  )
+  if(token !== null)
+    return (
+        <>
+            <div className='adminDashBoardParent'>
+                <div className="navParent">
+                    <NavbAdmin/>
+                </div>
+                <div className="contentParent">
+                    <h1>adminDashboard</h1>
+                </div>
+            </div>
+        </>
+      )
 }

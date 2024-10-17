@@ -13,19 +13,23 @@ import axios from "axios"
 import {toast} from "react-hot-toast"
 
 
-let LoginUser = ()=> {
+let LoginUser = () => {
+
 //CONTROLL IF ALREADY CONNECTED
   const navigate = useNavigate();
-  /*const [token, setToken] = useState(sessionStorage.getItem("user"));
+  const [token, setToken] = useState(sessionStorage.getItem("user"));
   if(token !== null){
-      const [userDataSRC, setUserDataSRC] = useState(getUser.getDataUser(token));
-      const [userData, setUserData] = useState(userDataSRC.then(async (data) => await setUserData((data))));
-      // useEffect(() => {
-      //   navigate("/"+userData.fonction);
-      // })
+    const [userDataSRC, setUserDataSRC] = useState(getUser.getDataUser(token));
+    const d = userDataSRC.then(async (data) => await setUserData((data)))
+    const [userData, setUserData] = useState();
+      
+    useEffect(() => {
+        if(userData != undefined){
+          navigate("/"+userData.fonction)
+        }
+    })
   }
 
-*/
 // SECTION LOGIN
   const [username,setUsername] = useState()
   const [password,setPassword] = useState()
@@ -74,7 +78,7 @@ let LoginUser = ()=> {
   
   }
   
-  
+if(token == null)  
   return (
     <>
       <div className='loginParent'>
