@@ -1,26 +1,30 @@
 .parentNavbar{
    height: calc(100% - 30px);
-   width: 100%;
+   width: 260px;
    background-color: var(--noirbe);
-   padding: 20% 12%;
+   padding: 55px 12%;
    border-radius: 25px;
    position: relative;
+   transition: .3s;
 }
 
 .parentNavbar .logoSection{
    height: 20px;
    width: 100%;
    display: flex;
+   justify-content: center;
    align-items: center;
    color: var(--white);
 }
 .parentNavbar .logoSection p {
    font-size: 1.4rem;
    margin-left: 10px;
+   text-wrap: nowrap;
    font-family: poppinsBold;
+   transition: .3s;
 }
 .logoSection .logoFile{
-   border-radius: 100%;
+   border-radius: 54px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -31,7 +35,7 @@
 
 .parentNavbar .linkSection{
    width: 100%;
-   margin-top: 70px;
+   margin-top: 45px;
 }
 .linkSection ul{
    list-style: none;
@@ -48,35 +52,77 @@
    border-radius: 10px;
    color: var(--whiteNav);
    cursor: pointer;
+   display: flex;
+   align-items: center;
 }
+
+.linkSection li:hover{
+   background-color: var(--grayTransp);
+}
+
+.nameList{
+   margin-left: 10px;
+   transition: .8s;
+}
+
+.iconList{
+   display: flex;  
+   align-items: center;
+}
+
 .parentNavbar .selected{
-   background-color: var(--ThemClaire);
+   background-color: var(--ThemClaire) !important;
    color: var(--white);
+   transition: .3s;
+}
+
+.parentNavbar .toggleSection{
+   margin-top: 40px;
+   margin-right: -15px;
+   display: flex;
+   justify-content: end;
+   transition: .3s;
+}
+.toggleSection .btnToggle{
+   display: flex;
+   padding: 5px;
+   justify-content: center;
+   align-items: center;
+   background: var(--grayTransp);
+   border-radius: 12px;
+   cursor: pointer;
+   border: none;
+   color: var(--whiteNav);
+}
+.toggleSection .btnToggle:hover{
+   color: var(--white);
+   transition: .3s;
 }
 
 
 .parentNavbar .userInfoSection{
-   margin-top: 60px;
+   margin-top: 15px;
+   padding: 10px 14px;
    display: flex;
    align-items: center;
 }
 
 .userInfoSection .userIcon{
-   border-radius: 100%;
+   border-radius: 40px;
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 42px;
-   height: 42px;
-   overflow: hidden;
+   width: 40px;
+   height: 40px;
    background-color: var(--whiteTransp);
 }
 .userIcon img{
-   width: 100%;
+   width: 39px;
 }
 
 .userInfoSection .nameContainer{
-   margin-left: 20px;
+   margin-left: 15px;
+   transition: .8s;
 }
 
 .userInfoSection p {
@@ -84,6 +130,7 @@
    color: var(--whiteNav);
    font-family: poppinsBold;
    font-size: 1.05rem;
+   text-wrap:nowrap;
 }
 
 .userInfoSection .fonction{
@@ -98,10 +145,51 @@
    bottom: 30px;
    right: 0;
    left: 0;
+   
+   display: flex;
+   align-items: center;
 
    margin: 0 12%;
    padding: 10px 20px;
    border-radius: 10px;
    color: var(--whiteNav);
    cursor: pointer;
+}
+.logoutSection:hover{
+   background-color: var(--grayTransp);
+}
+.logoutSection div{
+   display: flex;
+   align-items: center;
+}
+
+.Active-Toggle {
+   width: 90px !important;
+   overflow: hidden;
+   transition: .3s;
+}
+
+.Active-Toggle .logoSection p{
+   transition: .3s;
+   /* display: none; */
+}
+.Active-Toggle .nameContainer{
+   transition: .3s;
+   opacity: 0;
+}
+.Active-Toggle .nameList{
+   transition: .3s;
+   opacity: 0;
+}
+.Active-Toggle .toggleSection{
+   margin-right: 0;
+   justify-content: center;
+   transition: .3s;
+}
+
+.Active-Toggle .logoSection p {
+   font-size: 0;
+   opacity: 0;
+   margin-left: 0;
+   transition: .3s;
 }
