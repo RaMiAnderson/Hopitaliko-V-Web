@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import LoginCover from "../../assets/cover/bg.svg"
+import LoginCover from "../../assets/cover/bg.gif"
 import { Navigate, useNavigate } from 'react-router-dom'
 import getUser from "../../services/getUserFonction"
 
@@ -31,8 +31,8 @@ let LoginUser = () => {
   }
 
 // SECTION LOGIN
-  const [username,setUsername] = useState()
-  const [password,setPassword] = useState()
+  const [username,setUsername] = useState(null)
+  const [password,setPassword] = useState(null)
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -42,35 +42,47 @@ let LoginUser = () => {
     const passInputDiv = document.querySelector(".passErr .MuiInputBase-root")
     
     try{
-      const res = await axios.post("http://localhost:8011/api/auth/login", {username, password});
-      emailsLabel.classList.remove("Mui-error")
-      emailInputDiv.classList.remove("Mui-error")
-      passLabel.classList.remove("Mui-error")
-      passInputDiv.classList.remove("Mui-error")
+      if(username != null && password != null){
+        const res = await axios.post("http://localhost:8011/api/auth/login", {username, password});
+        emailsLabel.classList.remove("Mui-error")
+        emailInputDiv.classList.remove("Mui-error")
+        passLabel.classList.remove("Mui-error")
+        passInputDiv.classList.remove("Mui-error")
+      
+        // ilay token
+        const tk = JSON.stringify(res.data.token);
 
-      // ilay token
-      const tk = JSON.stringify(res.data.token);
-
-      if(res.data.msg == "Connexion réussi"){
-        //save to session : envoi token
-        sessionStorage.setItem("user",tk);
-        if(res.status == 200 && res.data.user.fonction == "Admin")
-          navigate("/admin/dashboard");
-      }else{
-        //control message 
-        let message = JSON.stringify(res.data.msg).split("").map(car => car.replace('"', "")).join("");
-        toast.error(message, { duration: 6000});
-        //control style
-        if(message == "Mot de passe incorrect"){
-          passLabel.classList.add("Mui-error")
-          passInputDiv.classList.add("Mui-error")
+        if(res.data.msg == "Connexion réussi"){
+          //save to session : envoi token
+          sessionStorage.setItem("user",tk);
+          if(res.status == 200 && res.data.user.fonction == "Admin")
+            navigate("/admin/dashboard");
+        }else{
+          //control message 
+          let message = JSON.stringify(res.data.msg).split("").map(car => car.replace('"', "")).join("");
+          toast.error(message, { duration: 6000});
+          //control style
+          if(message == "Mot de passe incorrect"){
+            passLabel.classList.add("Mui-error")
+            passInputDiv.classList.add("Mui-error")
+          }
+          if(message == "Votre username est introuvable"){
+            emailsLabel.classList.add("Mui-error")
+            emailInputDiv.classList.add("Mui-error")
+          }
+          
         }
-        if(message == "Votre username est introuvable"){
-          emailsLabel.classList.add("Mui-error")
-          emailInputDiv.classList.add("Mui-error")
-        }
-        
+      }else if(username == null){
+        toast.error("Nom d'utilisateur vide", { duration: 6000});
+        emailsLabel.classList.add("Mui-error")
+        emailInputDiv.classList.add("Mui-error")
+      }else if(password == null){
+        toast.error("Mot de passe vide", { duration: 6000});
+        passLabel.classList.add("Mui-error")
+        passInputDiv.classList.add("Mui-error")
       }
+      
+      
     }catch (err)
     {
 

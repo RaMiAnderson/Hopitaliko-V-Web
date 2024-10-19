@@ -4,7 +4,10 @@
 }
 
 .navParent{
-    width: 14%;
+    margin-left: 15px;
+    width: 250px;
     height: 100vh;
-    background-color: var(--noirbe);
+    display: flex;
+    align-items: center;
+    /* position: fixed; */
 }

@@ -6,6 +6,10 @@
   font-family: poppins;
   src: url(./assets/fonts/Poppins/Poppins-Regular.ttf);
 }
+@font-face {
+  font-family: poppinsBold;
+  src: url(./assets//fonts/Poppins/Poppins-SemiBold.ttf);
+}
 
 *{
   font-family: poppins;
@@ -18,10 +22,19 @@
 :root {
   --noirbe : rgb(29, 29, 29);
   --white : #edf1f4;
+  --whiteTransp : #969696;
   --whiteBe : rgb(248, 247, 247);
-  --blueThem : #0099B9;
-  --blueThemClaire : #00b3d6;
-  --blueThemDur : #024F5F;
+  --whiteNav :  #8ac2ec;
+  --Them : #eb6258;
+  --ThemClaire : #f87269;
+  --ThemDur : #E42417;
   --grayTransp : #3f3d551a;
-  --orange : #ff6161;
+
+  /* dark Mode */
+
+  --bodyColor : rgba(51, 51, 51, 0.966);
+}
+
+body{
+  background-color: var(--white);
 }

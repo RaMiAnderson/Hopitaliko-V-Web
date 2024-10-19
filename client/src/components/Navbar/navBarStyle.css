@@ -1,3 +1,107 @@
 .parentNavbar{
-   
+   height: calc(100% - 30px);
+   width: 100%;
+   background-color: var(--noirbe);
+   padding: 20% 12%;
+   border-radius: 25px;
+   position: relative;
+}
+
+.parentNavbar .logoSection{
+   height: 20px;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   color: var(--white);
+}
+.parentNavbar .logoSection p {
+   font-size: 1.4rem;
+   margin-left: 10px;
+   font-family: poppinsBold;
+}
+.logoSection .logoFile{
+   border-radius: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 54px;
+   height: 54px;
+   background-color: var(--Them);
+}
+
+.parentNavbar .linkSection{
+   width: 100%;
+   margin-top: 70px;
+}
+.linkSection ul{
+   list-style: none;
+}
+
+.linkSection a{
+   text-decoration: none;
+}
+
+.linkSection li{
+   list-style: none;
+   padding: 10px 20px;
+   margin-top: 20px;
+   border-radius: 10px;
+   color: var(--whiteNav);
+   cursor: pointer;
+}
+.parentNavbar .selected{
+   background-color: var(--ThemClaire);
+   color: var(--white);
+}
+
+
+.parentNavbar .userInfoSection{
+   margin-top: 60px;
+   display: flex;
+   align-items: center;
+}
+
+.userInfoSection .userIcon{
+   border-radius: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 42px;
+   height: 42px;
+   overflow: hidden;
+   background-color: var(--whiteTransp);
+}
+.userIcon img{
+   width: 100%;
+}
+
+.userInfoSection .nameContainer{
+   margin-left: 20px;
+}
+
+.userInfoSection p {
+   text-align: center;
+   color: var(--whiteNav);
+   font-family: poppinsBold;
+   font-size: 1.05rem;
+}
+
+.userInfoSection .fonction{
+   font-family: poppins;
+   text-align: center;
+   font-size: 0.8rem;
+   color: var(--whiteTransp);
+}
+
+.logoutSection{
+   position: absolute;
+   bottom: 30px;
+   right: 0;
+   left: 0;
+
+   margin: 0 12%;
+   padding: 10px 20px;
+   border-radius: 10px;
+   color: var(--whiteNav);
+   cursor: pointer;
 }

@@ -40,7 +40,7 @@ export default function adminDashboard() {
                     <NavbAdmin/>
                 </div>
                 <div className="contentParent">
-                    <h1>adminDashboard</h1>
+                    <h1>______loading...</h1>
                 </div>
             </div>
         </>

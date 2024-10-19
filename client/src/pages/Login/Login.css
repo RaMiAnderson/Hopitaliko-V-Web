@@ -47,7 +47,7 @@
     font-size: 0.9rem;
 }
 .loginParent .sectionForm .TitleLogin{
-    color: var(--blueThem);
+    color: var(--Them);
 }
 .loginParent .sectionForm .salutation{
     color: var(--noirbe);
@@ -62,14 +62,14 @@
     margin-bottom: 5%;
 }
 .loginParent .sectionForm .btnSubmit{
-    background-color: var(--blueThem);
+    background-color: var(--Them);
     color: var(--white);
     text-transform:none;
     font-size: 1rem;
     margin-top: 5%;
 }
 .loginParent .sectionForm .btnSubmit:hover{
-    background-color: var(--blueThemDur);
+    background-color: var(--ThemDur);
 }
 .loginParent .sectionForm .btnOtherLog{
     text-transform: none;
@@ -88,7 +88,7 @@
     justify-content: space-between;
     border-color: #00bce2b0;
     box-shadow: 0px 0px 10px #00bce23a;
-    color: var(--blueThem);
+    color: var(--Them);
     margin-top: 12px;
 }
 .loginParent .sectionForm .otherLogBtn img{
