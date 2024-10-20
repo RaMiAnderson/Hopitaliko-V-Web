@@ -75,7 +75,7 @@ export default function AdminNavbar({numPg}) {
           </div>
 
           <div className="toggleSection">
-            <button onClick={() => activeToggle()} className='btnToggle'><Toggle sx={{width:35, height:35}}/></button>
+            <button onClick={() => activeToggle()} className='btnToggle'><Toggle sx={{width:30, height:30}}/></button>
           </div>
 
           {/* InfoUser */}
