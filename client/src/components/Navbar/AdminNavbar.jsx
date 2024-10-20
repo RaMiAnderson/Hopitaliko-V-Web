@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
+import logout from "../../services/logout"
 
 // Icons
 import DashBoardIco from "@mui/icons-material/InsertChartOutlinedOutlined"
@@ -53,6 +54,10 @@ export default function AdminNavbar({numPg}) {
       case 8 :
         navigate("/admin/utilisateurs");
         break;
+      case 9 : {
+        let resultLogout = logout();
+        location.reload();
+      }
     }
   }
 
