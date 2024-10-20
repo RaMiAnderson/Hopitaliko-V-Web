@@ -193,3 +193,8 @@
    margin-left: 0;
    transition: .3s;
 }
+
+.separateLogout{
+   margin-top: 65px;
+   opacity: 0.15;
+}

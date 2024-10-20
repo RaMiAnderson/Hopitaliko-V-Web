@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 // Icons
 import DashBoardIco from "@mui/icons-material/InsertChartOutlinedOutlined"
@@ -18,19 +19,45 @@ import bonHomm from "../../assets/img/Principale/userPers.png"
 //Style
 import "./navBarStyle.css"
 
-export default function AdminNavbar() {
-  const [indexActivList, setIndexActivList] = useState(1);
-  const [isToggleActive, setInverseToggle] = useState(false );
+export default function AdminNavbar({numPg}) {
+  const navigate = useNavigate();
 
-  
+  const [indexActivList, setIndexActivList] = useState(numPg);
+  const [isToggleActive, setInverseToggle] = useState(false);
+
 
   let ifClick = (index) => {
     setIndexActivList(index);
-
+    switch(index){
+      case 1 : 
+        navigate("/admin/dashboard");
+        break;
+      case 2 :
+        navigate("/admin/articles");
+        break;
+      case 3 :
+        navigate("/admin/fournisseurs");
+        break;
+      case 4 :
+        navigate("/admin/clients");
+        break;
+      case 5 :
+        navigate("/admin/inventaires");
+        break;
+      case 6 :
+        navigate("/admin/ravitaillements");
+        break;
+      case 7 :
+        navigate("/admin/depenses");
+        break;
+      case 8 :
+        navigate("/admin/utilisateurs");
+        break;
+    }
   }
 
   const activeToggle = () => {
-    setInverseToggle(!isToggleActive)
+    setInverseToggle(!isToggleActive);
   }
   
   return (
@@ -91,7 +118,7 @@ export default function AdminNavbar() {
                 <li className={`${indexActivList === 6 ? "selected" : ""}`} onClick={() => ifClick(6)}>
                   {/* mampiditr qt article */}
                   <div className="iconList"><ApprovIco sx={{width: 27, height:27}}/></div>
-                  <div className="nameList">Ravitaillement</div>
+                  <div className="nameList">Ravitaillements</div>
                 </li>
            
                 <li className={`${indexActivList === 7 ? "selected" : ""}`} onClick={() => ifClick(7)}>
@@ -109,7 +136,7 @@ export default function AdminNavbar() {
           </div>
 
           {/* section deco */}
- 
+            <hr className='separateLogout'/>
             <div className={`logoutSection ${indexActivList === 9 ? "selected" : ""}`} onClick={() => ifClick(9)}>
               <div ><DecoIco sx={{width: 27, height:27}}/></div>
               <div className='nameList'>Déconnexion</div>

@@ -31,18 +31,22 @@ export default function adminDashboard() {
         useEffect(() => {navigate("/")})
     
 
+    // All -- firstime controll aff
+    if(token !== null)
+        return (
+            <>
+                <div className='adminDashBoardParent'>
+                    <div className="navParent">
+                        <NavbAdmin numPg={1}/>
+                    </div>
+                    <div className="contentParent">
+                        <h1>______loading...Dashboard</h1>
+                    </div>
+                </div>
+            </>
+        )
 
-  if(token !== null)
-    return (
-        <>
-            <div className='adminDashBoardParent'>
-                <div className="navParent">
-                    <NavbAdmin/>
-                </div>
-                <div className="contentParent">
-                    <h1>______loading...</h1>
-                </div>
-            </div>
-        </>
-      )
+
+
+
 }

@@ -29,6 +29,34 @@ const route = createBrowserRouter([
   {
     path: "/admin",
     element : < Navigate to="/admin/dashboard" replace/>
+  },
+  {
+    path: "/admin/articles",
+    element: <App.AdminArtclPg/>
+  },
+  {
+    path: "/admin/fournisseurs",
+    element: <App.AdminFournssPg/>
+  },
+  {
+    path: "/admin/clients",
+    element: <App.AdminClntPg/>
+  },
+  {
+    path: "/admin/inventaires",
+    element: <App.AdminInvtryPg/>
+  },
+  {
+    path: "/admin/ravitaillements",
+    element: <App.AdminRavtaillPg/>
+  },
+  {
+    path: "/admin/depenses",
+    element: <App.AdminDepensePg/>
+  },
+  {
+    path: "/admin/utilisateurs",
+    element: <App.AdminU_M_Pg/>
   }
 ]);
 
