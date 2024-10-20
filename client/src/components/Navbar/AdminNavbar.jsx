@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import logout from "../../services/logout"
 
@@ -22,37 +22,60 @@ import "./navBarStyle.css"
 
 export default function AdminNavbar({numPg}) {
   const navigate = useNavigate();
-
+  
   const [indexActivList, setIndexActivList] = useState(numPg);
-  const [isToggleActive, setInverseToggle] = useState(false);
-
+  const [isToggleActive, setInverseToggle] = useState(true);
 
   let ifClick = (index) => {
     setIndexActivList(index);
     switch(index){
-      case 1 : 
-        navigate("/admin/dashboard");
+      case 1 :
+        if(location.pathname == "/admin/dashboard")
+          location.reload();
+        else
+          navigate("/admin/dashboard");
         break;
       case 2 :
-        navigate("/admin/articles");
+        if(location.pathname == "/admin/articles")
+          location.reload();
+        else
+          navigate("/admin/articles");
         break;
       case 3 :
-        navigate("/admin/fournisseurs");
+        if(location.pathname == "/admin/fournisseurs")
+          location.reload();
+        else
+          navigate("/admin/fournisseurs");
         break;
       case 4 :
-        navigate("/admin/clients");
+        if(location.pathname == "/admin/clients")
+          location.reload();
+        else
+          navigate("/admin/clients");
         break;
       case 5 :
-        navigate("/admin/inventaires");
+        if(location.pathname == "/admin/inventaires")
+          location.reload();
+        else
+          navigate("/admin/inventaires");
         break;
       case 6 :
-        navigate("/admin/ravitaillements");
+        if(location.pathname == "/admin/ravitaillements")
+          location.reload();
+        else
+          navigate("/admin/ravitaillements");
         break;
       case 7 :
-        navigate("/admin/depenses");
+        if(location.pathname == "/admin/depenses")
+          location.reload();
+        else
+          navigate("/admin/depenses");
         break;
       case 8 :
-        navigate("/admin/utilisateurs");
+        if(location.pathname == "/admin/utilisateurs")
+          location.reload();
+        else
+          navigate("/admin/utilisateurs");
         break;
       case 9 : {
         let resultLogout = logout();

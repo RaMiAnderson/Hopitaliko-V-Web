@@ -1,5 +1,5 @@
 .parentNavbar{
-   height: calc(100% - 30px);
+   height: calc(100% - 20px);
    width: 260px;
    background-color: var(--noirbe);
    padding: 45px 12%;
